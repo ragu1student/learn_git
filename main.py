@@ -2,7 +2,7 @@ print("hello world")
 # write some code with 5 functions all need to do something also class
 
 def func1():
-    print("func1")
+    print("func10")
     
 def func2():
     print("func2")
