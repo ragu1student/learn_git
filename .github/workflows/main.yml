@@ -1,17 +1,17 @@
-name: Echo Hello World
+name: Deploy to Linux Server
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    echo_hello_world:
-        runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-            - name: Echo Hello World
-              run: echo "Hello World"
+      - name: Echo Hello World
+        run: echo "Hello World"
