@@ -15,3 +15,6 @@ jobs:
 
       - name: Echo Hello World
         run: echo "Hello World"
+
+      - name: Deploy Code
+        uses: appleboy/ssh-action@master
