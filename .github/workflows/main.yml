@@ -16,5 +16,8 @@ jobs:
       - name: Echo Hello World
         run: echo "Hello World"
 
-      - name: Deploy Code
-        uses: appleboy/ssh-action@master
+      - name: Print Secrets
+        run: |
+          echo ${{ secrets.SERVER_HOST  }}
+          echo ${{ secrets.SERVER_USERNAME }}
+          echo ${{ secrets.SSH_PRIVATE_KEY  }}
