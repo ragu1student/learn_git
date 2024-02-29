@@ -34,3 +34,9 @@ if __name__ == "__main__":
     func5()
     myclass = MyClass()
     myclass.func1()
+
+    # create a template for the code
+
+def create_template():
+    with open("main.py", "w") as f:
+        f.write("hi")
