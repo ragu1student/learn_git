@@ -18,6 +18,6 @@ jobs:
 
       - name: Print Secrets
         run: |
-          echo ${{ secrets.SERVER_HOST  }}
-          echo ${{ secrets.SERVER_USERNAME }}
-          echo ${{ secrets.SSH_PRIVATE_KEY  }}
+          echo "${{ secrets.SERVER_HOST }}"
+          echo "${{ secrets.SERVER_USERNAME }}"
+          echo "${{ secrets.SSH_PRIVATE_KEY }}"
