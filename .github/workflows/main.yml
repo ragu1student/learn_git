@@ -7,9 +7,13 @@ on:
 
 env:
   SERVER_SCRIPT: |
-    echo ${{secrets.SERVER_HOST}} >> /home/ubuntu/hello.txt
-    echo "ragu G is here" >> /home/ubuntu/hello.txt
-    echo "Script executed successfully"
+    # check hello.txt file is exist or not
+    if [ -f hello.txt ]; then
+      echo "File is exist"
+    else
+      echo "File is not exist"
+    fi
+    echo "Task Completed"
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,5 +31,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: eval "${{ env.SERVER_SCRIPT }}"
+          script: |
+            cd /home/ubuntu
+            eval "${{ env.SERVER_SCRIPT }}"
             
