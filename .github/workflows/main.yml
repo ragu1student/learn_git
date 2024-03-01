@@ -14,6 +14,9 @@ env:
       echo "File is not exist"
     fi
     echo "Task Completed"
+  REBOOT_SCRIPT: |
+    echo "Server rebooting in 30 seconds"
+    nohup bash -c '(echo "Server rebooting in 30 seconds" && sleep 30 && sudo reboot)' > /dev/null 2>&1 & disown
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -33,5 +36,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu
-            ${{ env.SERVER_SCRIPT }}
+            echo "rebooting script will be executed"
+            ${{ env.REBOOT_SCRIPT}}
+            echo "server script will be executed"
             
